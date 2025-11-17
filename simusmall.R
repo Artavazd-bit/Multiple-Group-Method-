@@ -9,8 +9,6 @@ source("setupsmall.R")
 nkernel <- 16
 nobs <- c(50, 100, 200)
 simrunstotal <- 1000
-bootruns <- 500
-alphavec <- c(0.01, 0.05, 0.1)
 # normal: no skewness, no kurtosis, nonnormal: specified skewness and kurtosis 
 # values 
 disttable <- data.frame(name = c("normal"))
@@ -21,7 +19,7 @@ disttable$kurtosis <- list(NULL)
 cl <- parallel::makeCluster(nkernel, outfile = "errorcluster.txt")
 doParallel::registerDoParallel(cl)
 
-simresults <- foreach(jj = 1:nrow(simModels), .packages = c("lavaan", "foreach", "dplyr"), .combine = "rbind", .export = c("jacknife")) %:%
+simresults <- foreach(jj = 1:nrow(simModels), .packages = c("lavaan", "foreach", "dplyr"), .combine = "rbind") %:%
   foreach(n = nobs, .combine = "rbind") %:%
   foreach(sim_runs = 1:simrunstotal, .combine = "rbind") %dopar%
   {
@@ -34,40 +32,24 @@ simresults <- foreach(jj = 1:nrow(simModels), .packages = c("lavaan", "foreach",
                                      skewness = disttable$skewness[[distn]],
                                      kurtosis = disttable$kurtosis[[distn]],
                                      seed = seed, # Set random seed.
-                                     empirical = FALSE, # Logical. If TRUE, the implied moments (Mu and Sigma) specify the empirical not population mean and covariance matrix.
+                                     empirical = TRUE, # Logical. If TRUE, the implied moments (Mu and Sigma) specify the empirical not population mean and covariance matrix.
                                      return.type = "data.frame"
         )
         
         simuresults <- wrapper_alt(data = data, model = model_est, latent1 = "xi_1", latent2 = "xi_2")
-        res <- foreach(type = c("delta", "boot", "bcaboot"), .combine = "rbind") %:%
-          foreach(indexgamma = 1:length(alphavec), .combine = "rbind") %do%
-          {
-            HTMT <- simuresults$delta$HTMT
-            seHTMT <- simuresults[[type]]$se
-            lowerbound <- unname(simuresults[[type]]$lowerbound[indexgamma])
-            upperbound <- unname(simuresults[[type]]$upperbound[indexgamma])
-            missing <- unname(simuresults[[type]]$missing)
-            time <- simuresults[[type]]$time
-            row <- data.frame(correlation = correlation
-                              , n = n
-                              , HTMT = HTMT
-                              , seHTMT = seHTMT
-                              , sim_runs
-                              , datatype = disttable$name[distn]
-                              , method = type
-                              , alpha = alphavec[indexgamma]
-                              , lowerbound = lowerbound
-                              , upperbound =  upperbound
-                              , coveragecorr = lowerbound < correlation & correlation <  upperbound
-                              , coverageone =  lowerbound < 1 & 1 < upperbound
-                              , time = time
-                              , seed = seed
-                              , missing = missing
-            )
-            row
-          }
-        res
+        data.frame (correlation = correlation, 
+                    n = n,
+                    sim_runs, 
+                    loading1 = simModels$loading_1[jj],
+                    loading2 = simModels$loading_2[jj],
+                    HTMT_cov = simuresults$htmt_cov,
+                    HTMT_cor = simuresults$htmt_cor,
+                    HTMT_2_cor = simuresults$htmt_2_cor,
+                    MGA = simuresults$mga
+                    )
       }
     temp
   }
 closeAllConnections()
+write.csv2(x = simresults, file = "smallsim.csv")
+
