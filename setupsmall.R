@@ -22,7 +22,7 @@ multigroup <- function(data , model, latent1, latent2){
   Fzero <- pattern_matrix %*% Sstar 
   Lzero <- Fzero %*% t(pattern_matrix)
   
-  Dinvsqrt <- diag(1/sqrt(diag(diag(diag(Lzero)))))
+  Dinvsqrt <- diag(1/sqrt(diag(Lzero)))
   
   L <- Dinvsqrt %*% Lzero %*% Dinvsqrt
   
@@ -99,15 +99,51 @@ wrapper_alt <- function(data, model, latent1, latent2){
 
 ################################################################################
 ## Defining the models
-coefs <- c(-0.9, -0.5, 0.01, 0.5, 0.9)
-corr <- c(0.7, 0.95, 1)
-param <- expand.grid(loading1 = coefs, loading2 = coefs, correlation = corr)
-simModels <- foreach(i = 1:nrow(param), .combine = "rbind") %do%
+#coefs <- c(-0.9, -0.5, 0.01, 0.5, 0.9)
+#corr <- c(0.7, 1)
+#param <- expand.grid(loading1 = coefs, loading2 = coefs, correlation = corr)
+#simModels2 <- foreach(i = 1:nrow(param), .combine = "rbind") %do%
+#  {
+#    simCommonFactor <- 
+#      paste(
+#        paste("xi_1 =~ ",param$loading1[i], "*x11 + ",param$loading1[i],"*x12 + ",param$loading1[i], "*x13"),"\n"
+#        , paste("xi_2 =~ ",param$loading2[i], "*x21 + ",param$loading2[i],"*x22 + ",param$loading2[i], "*x23"), "\n"
+#        , paste("xi_1 ~~ 1*xi_1 + ", param$correlation[i], "*xi_2"),"\n"
+#        , "xi_2 ~~ 1*xi_2 \n"
+#        , paste("x11 ~~", 0.6, "*x11 + 0*x12 + 0*x13 + 0*x21 + 0*x22 + 0*x23"),"\n"
+#        , paste("x12 ~~", 0.5, "*x12 + 0*x13 + 0*x21 + 0*x22 + 0*x23"),"\n"
+  #       , paste("x13 ~~", 0.2, "*x13 + 0*x21 + 0*x22 + 0*x23"),"\n"
+  #       , paste("x21 ~~", 0.6, "*x21 + 0*x22 + 0*x23"),"\n"
+  #       , paste("x22 ~~", 0.5, "*x22 + 0*x23"),"\n"
+  #       , paste("x23 ~~", 0.2, "*x23"), "\n"
+  #       , paste("x11 ~ 0*1"), "\n"
+  #       , paste("x12 ~ 0*1"), "\n"
+  #       , paste("x13 ~ 0*1"), "\n"
+  #       , paste("x21 ~ 0*1"), "\n"
+  #       , paste("x22 ~ 0*1"), "\n"
+  #       , paste("x23 ~ 0*1"), "\n"
+  #     )
+  #   save <- data.frame(
+  #     loading_1 = param$loading1[i],
+  #     loading_2 =  param$loading2[i],
+  #     correlation = param$correlation[i],
+  #     model = simCommonFactor
+  #   )
+  #   save
+  #   #rm(save, simCommonFactor, i)
+  # }
+#simModels2
+
+################################################################################
+#coefs <- c(-0.9, -0.5, 0.01, 0.5, 0.9)
+corr <- c(0, 0.3, 0.7, 1)
+param <- expand.grid(correlation = corr)
+simModels_harsh <- foreach(i = 1:nrow(param), .combine = "rbind") %do%
   {
     simCommonFactor <- 
       paste(
-        paste("xi_1 =~ ",param$loading1[i], "*x11 + ",param$loading1[i],"*x12 + ",param$loading1[i], "*x13"),"\n"
-        , paste("xi_2 =~ ",param$loading2[i], "*x21 + ",param$loading2[i],"*x22 + ",param$loading2[i], "*x23"), "\n"
+        paste("xi_1 =~ 0.7*x11 + (-0.5)*x12 + 0.8*x13"),"\n"
+        , paste("xi_2 =~ 0.9*x21 + (-0.6)*x22 + (-0.8)*x23"), "\n"
         , paste("xi_1 ~~ 1*xi_1 + ", param$correlation[i], "*xi_2"),"\n"
         , "xi_2 ~~ 1*xi_2 \n"
         , paste("x11 ~~", 0.6, "*x11 + 0*x12 + 0*x13 + 0*x21 + 0*x22 + 0*x23"),"\n"
@@ -124,17 +160,49 @@ simModels <- foreach(i = 1:nrow(param), .combine = "rbind") %do%
         , paste("x23 ~ 0*1"), "\n"
       )
     save <- data.frame(
-      loading_1 = param$loading1[i],
-      loading_2 =  param$loading2[i],
+      type = "harsh",
       correlation = param$correlation[i],
       model = simCommonFactor
     )
     save
     #rm(save, simCommonFactor, i)
   }
-simModels
+simModels_harsh
 
-rm(coefs, corr, param, simCommonFactor, save, i)
+corr <- c(0, 0.3, 0.7, 1)
+param <- expand.grid(correlation = corr)
+simModels_mild <- foreach(i = 1:nrow(param), .combine = "rbind") %do%
+  {
+    simCommonFactor <- 
+      paste(
+        paste("xi_1 =~ 0.7*x11 + (0.5)*x12 + 0.8*x13"),"\n"
+        , paste("xi_2 =~ 0.9*x21 + (0.6)*x22 + (0.8)*x23"), "\n"
+        , paste("xi_1 ~~ 1*xi_1 + ", param$correlation[i], "*xi_2"),"\n"
+        , "xi_2 ~~ 1*xi_2 \n"
+        , paste("x11 ~~", 0.6, "*x11 + 0*x12 + 0*x13 + 0*x21 + 0*x22 + 0*x23"),"\n"
+        , paste("x12 ~~", 0.5, "*x12 + 0*x13 + 0*x21 + 0*x22 + 0*x23"),"\n"
+        , paste("x13 ~~", 0.2, "*x13 + 0*x21 + 0*x22 + 0*x23"),"\n"
+        , paste("x21 ~~", 0.6, "*x21 + 0*x22 + 0*x23"),"\n"
+        , paste("x22 ~~", 0.5, "*x22 + 0*x23"),"\n"
+        , paste("x23 ~~", 0.2, "*x23"), "\n"
+        , paste("x11 ~ 0*1"), "\n"
+        , paste("x12 ~ 0*1"), "\n"
+        , paste("x13 ~ 0*1"), "\n"
+        , paste("x21 ~ 0*1"), "\n"
+        , paste("x22 ~ 0*1"), "\n"
+        , paste("x23 ~ 0*1"), "\n"
+      )
+    save <- data.frame(
+      type = "mild",
+      correlation = param$correlation[i],
+      model = simCommonFactor
+    )
+    save
+    #rm(save, simCommonFactor, i)
+  }
+
+simModels <- rbind(simModels_harsh, simModels_mild)
+rm(simModels_harsh, simModels_mild, param, save, corr)
 ################################################################################
 model_est<- '
               #  latent variables

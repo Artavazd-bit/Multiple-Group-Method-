@@ -5,7 +5,6 @@ library(dplyr)
 library(matlib)
 
 
-
 coefs <- 1
 corr <- c(0.7, 0.8, 0.9, 0.95, 1)
 param <- expand.grid(loading1 = coefs, loading2 = coefs, correlation = corr)
@@ -43,8 +42,8 @@ simModels
 
 rm(coefs, corr, param, simCommonFactor, save, i)
 
-model <- "xi_1 =~  0.8 *x11 +  0.9 *x12 +  0.7 *x13 
-xi_2 =~  0.6 *x21 +  0.9 *x22 +  0.8 *x23 
+model <- "xi_1 =~  0.01 *x11 +  -0.9 *x12 +  -0.7 *x13 
+xi_2 =~  -0.6 *x21 +  -0.9 *x22 +  -0.8 *x23 
 xi_1 ~~ 1*xi_1 +  0.8 *xi_2 
 xi_2 ~~ 1*xi_2 
 x11 ~~ 0.6 *x11 + 0*x12 + 0*x13 + 0*x21 + 0*x22 + 0*x23 
@@ -94,11 +93,11 @@ n <- 10000
 
 # simModels$model[2] gibt eine Korrelation gleich 0.8
 data <- lavaan::simulateData(model = model,
-                             sample.nobs = n, # Number of observations.
+                             sample.nobs = 25, # Number of observations.
                              skewness = NULL,
                              kurtosis = NULL,
                              seed = set_seed, # Set random seed.
-                             empirical = TRUE, # if TRUE dann sind empirical gleich pop values
+                             empirical = FALSE, # if TRUE dann sind empirical gleich pop values
                              return.type = "data.frame"
 )
 ################################################################################

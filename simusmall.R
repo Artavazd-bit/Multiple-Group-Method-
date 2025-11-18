@@ -6,8 +6,8 @@ library(matlib)
 
 source("setupsmall.R")
 
-nkernel <- 16
-nobs <- c(50, 100, 200)
+nkernel <- 8
+nobs <- c(25, 50, 100, 200, 1000)
 simrunstotal <- 1000
 # normal: no skewness, no kurtosis, nonnormal: specified skewness and kurtosis 
 # values 
@@ -32,7 +32,7 @@ simresults <- foreach(jj = 1:nrow(simModels), .packages = c("lavaan", "foreach",
                                      skewness = disttable$skewness[[distn]],
                                      kurtosis = disttable$kurtosis[[distn]],
                                      seed = seed, # Set random seed.
-                                     empirical = TRUE, # Logical. If TRUE, the implied moments (Mu and Sigma) specify the empirical not population mean and covariance matrix.
+                                     empirical = FALSE, # Logical. If TRUE, the implied moments (Mu and Sigma) specify the empirical not population mean and covariance matrix.
                                      return.type = "data.frame"
         )
         
@@ -40,8 +40,8 @@ simresults <- foreach(jj = 1:nrow(simModels), .packages = c("lavaan", "foreach",
         data.frame (correlation = correlation, 
                     n = n,
                     sim_runs, 
-                    loading1 = simModels$loading_1[jj],
-                    loading2 = simModels$loading_2[jj],
+                    seed = seed,
+                    type = simModels$type[jj],
                     HTMT_cov = simuresults$htmt_cov,
                     HTMT_cor = simuresults$htmt_cor,
                     HTMT_2_cor = simuresults$htmt_2_cor,
@@ -51,5 +51,5 @@ simresults <- foreach(jj = 1:nrow(simModels), .packages = c("lavaan", "foreach",
     temp
   }
 closeAllConnections()
-write.csv2(x = simresults, file = "smallsim.csv")
+write.csv2(x = simresults, file = "smallsim_congeneric_mit_seed.csv")
 
