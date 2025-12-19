@@ -3,6 +3,9 @@ library(doParallel)
 library(foreach)
 library(dplyr)
 library(matlib)
+
+simresults <- read.csv2("smallsim_congeneric_mit_seed.csv")
+
 simresults2 <- simresults
 
 simresults2$mgamissing <- as.numeric(is.na(simresults2$MGA))
@@ -19,15 +22,14 @@ missingag <- simresults2 %>% group_by(correlation, n, type) %>%
   )
 
 resultsag <- simresults %>% 
-  group_by(correlation, n, loading1, loading2) %>%
-  summarize(htmt_cov_mean = mean(HTMT_cov),
-            htmt_cor_mean = mean(HTMT_cor),
-            htmt_2_cor_mean = mean(HTMT_2_cor),
-            mga_mean = mean(MGA)
+  group_by(correlation, n, type) %>%
+  summarize(htmt_cov_mean = mean(HTMT_cov, na.rm = TRUE),
+            htmt_cor_mean = mean(HTMT_cor, na.rm = TRUE),
+            htmt_2_cor_mean = mean(HTMT_2_cor, na.rm = TRUE),
+            mga_mean = mean(MGA, na.rm = TRUE)
   )
 
-
-missingag_sort <- missingag %>% arrange(desc(mga_missing), desc(htmt_cov_missing), desc(htmt_cor_missing), desc(htmt_2_cor_missing))
+missingag_sort <- missingag %>% arrange(desc(correlation), desc(mga_missing), desc(htmt_cov_missing), desc(htmt_cor_missing), desc(htmt_2_cor_missing))
 
 ######### find missing #############
 seed_missing_mga <- simresults[simresults$correlation == 0 & simresults$n == 25 & simresults$type == "harsh" & is.na(simresults$MGA),]

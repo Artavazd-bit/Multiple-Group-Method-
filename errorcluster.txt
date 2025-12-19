@@ -1487,3 +1487,1263 @@ Es gab 35 Warnungen (Anzeige mit warnings())
 Ausführung angehalten
 Ausführung angehalten
 Ausführung angehalten
+starting worker pid=11164 on localhost:11302 at 15:59:13.130
+starting worker pid=22568 on localhost:11302 at 15:59:13.400
+starting worker pid=12696 on localhost:11302 at 15:59:13.612
+starting worker pid=9688 on localhost:11302 at 15:59:13.829
+starting worker pid=12412 on localhost:11302 at 15:59:14.052
+starting worker pid=16456 on localhost:11302 at 15:59:14.277
+starting worker pid=1484 on localhost:11302 at 15:59:14.523
+starting worker pid=9456 on localhost:11302 at 15:59:14.754
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+
+Attache Paket: 'dplyr'
+
+
+Attache Paket: 'dplyr'
+
+
+Attache Paket: 'dplyr'
+
+
+Attache Paket: 'dplyr'
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+
+Attache Paket: 'dplyr'
+
+
+Attache Paket: 'dplyr'
+
+askiert von 'package:stats':
+
+    filter, lag
+
+
+Attache Paket: 'dplyr'
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+ 
+ 
+###############################################################################
+ 
+ 
+###############################################################################
+This is semTools 0.5-6
+#######################################################
+###############################################################################
+###############################################################################
+This is semTools 0.5-6
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+This is semTools 0.5-6
+This is semTools 0.5-6
+This is semTools 0.5-6
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+###############################################################################
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+###############################################################################
+###############################################################################
+This is semTools 0.5-6
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+###############################################################################
+###############################################################################
+ 
+###############################################################################
+This is semTools 0.5-6
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+###############################################################################
+starting worker pid=5344 on localhost:11302 at 16:29:38.916
+starting worker pid=17096 on localhost:11302 at 16:29:39.215
+starting worker pid=9960 on localhost:11302 at 16:29:39.511
+starting worker pid=7832 on localhost:11302 at 16:29:39.804
+starting worker pid=9908 on localhost:11302 at 16:29:40.071
+starting worker pid=12780 on localhost:11302 at 16:29:40.335
+starting worker pid=10760 on localhost:11302 at 16:29:40.601
+starting worker pid=26944 on localhost:11302 at 16:29:40.873
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Zusätzlich: erialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Warnmeldungen:
+Zusätzlich: 1: Paket 'foreach' wurde unter R Version 4.4.2 erstellt 
+Zusätzlich: :
+2: Paket 'semTools' wurde unter R Version 4.4.2 erstellt 
+Warnmeldungen:
+h' wurde unter R Version 4.4.2 erstellt 
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung1: Paket 'foreach' wurde unter R Version 4.4.2 erstellt 
+Data.SOCKnode -> unserialize
+Warnmeldungen:
+2: Paket 'semTools' wurde unter R Version 4.4.2 erstellt 
+1: Paket 'foreach' wurde unter R Version 4.4.2 erstellt 
+2: Paket 'semTools' wurde unter R Version 4.4.2 erstellt 
+Ausführung angehalten
+Warnmeldungen:
+halten
+Ausführung angehalten
+ unter R Version 4.4.2 erstellt 
+Ausführung angehalten
+e unter R Version 4.4.2 erstellt 
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Ausführung angehalten
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Zusätzlich: Zusätzlich: Warnmeldungen:
+Warnmeldungen:
+h' wurde unter R Version 4.4.2 erstellt 
+2: Paket 'semTools' wurde unter R Version 4.4.2 erstellt 
+1: Paket 'foreach' wurde unter R Version 4.4.2 erstellt 
+2: Paket 'semTools' wurde unter R Version 4.4.2 erstellt 
+Ausführung angehalten
+Ausführung angehalten
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Zusätzlich: Warnmeldungen:
+1: Paket 'foreach' wurde unter R Version 4.4.2 erstellt 
+2: Paket 'semTools' wurde unter R Version 4.4.2 erstellt 
+Ausführung angehalten
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+
+Attache Paket: 'dplyr'
+
+
+Attache Paket: 'dplyr'
+
+
+Attache Paket: 'dplyr'
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+
+Attache Paket: 'dplyr'
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+
+Attache Paket: 'dplyr'
+
+
+Attache Paket: 'dplyr'
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+
+Attache Paket: 'dplyr'
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+ 
+ 
+################################################################################# 
+ 
+############################################################################
+###############################################################################
+###############################################################################
+This is semTools 0.5-6
+This is semTools 0.5-6
+###############################################################################
+This is semTools 0.5-6
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+This is semTools 0.5-6
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+###############################################################################
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+###############################################################################
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+###############################################################################
+###############################################################################
+###############################################################################
+###############################################################################
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+###############################################################################
+###############################################################################
+This is semTools 0.5-6
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+###############################################################################
+starting worker pid=3400 on localhost:11302 at 16:34:13.749
+starting worker pid=15708 on localhost:11302 at 16:34:14.015
+starting worker pid=26644 on localhost:11302 at 16:34:14.284
+starting worker pid=25328 on localhost:11302 at 16:34:14.566
+starting worker pid=14612 on localhost:11302 at 16:34:14.851
+starting worker pid=25688 on localhost:11302 at 16:34:15.115
+starting worker pid=3424 on localhost:11302 at 16:34:15.375
+starting worker pid=21020 on localhost:11302 at 16:34:15.654
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+
+Attache Paket: 'dplyr'
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+
+Attache Paket: 'dplyr'
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+
+Attache Paket: 'dplyr'
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+
+Attache Paket: 'dplyr'
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+
+Attache Paket: 'dplyr'
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+ 
+###############################################################################
+This is semTools 0.5-6
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+###############################################################################
+ 
+###############################################################################
+This is semTools 0.5-6
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+###############################################################################
+
+Attache Paket: 'dplyr'
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+
+Attache Paket: 'dplyr'
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+ 
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+This is semTools 0.5-6
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+###############################################################################
+ 
+###############################################################################
+This is semTools 0.5-6
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+###############################################################################
+ 
+###############################################################################
+This is semTools 0.5-6
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+###############################################################################
+
+Attache Paket: 'dplyr'
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+ 
+###############################################################################
+This is semTools 0.5-6
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+###############################################################################
+ 
+###############################################################################
+This is semTools 0.5-6
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+###############################################################################
+ 
+###############################################################################
+This is semTools 0.5-6
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+###############################################################################
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Zusätzlich: Warnmeldungen:
+1: Paket 'foreach' wurde unter R Version 4.4.2 erstellt 
+2: Paket 'semTools' wurde unter R Version 4.4.2 erstellt 
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Zusätzlich: Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Ausführung angehalten
+Warnmeldungen:
+Zusätzlich: each' wurde unter R Version 4.4.2 erstellt 
+2: Paket 'semTools' wurde unter R Version 4.4.2 erstellt 
+Warnmeldungen:
+1: Paket 'foreach' wurde unter R Version 4.4.2 erstellt 
+2: Paket 'semTools' wurde unter R Version 4.4.2 erstellt 
+
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Ausführung angehalten
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Ausführung angehalten
+Warnmeldungen:
+1: Paket 'forWarnmeldungen:
+r R Version 4.4.2 erstellt 
+2: Paket 'semTools' wurde unter R Version 4.4.2 erstellt 
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Ausführung angehalten
+Zusätzlich: Warnmeldungen:
+h' wurde unter R Version 4.4.2 erstellt 
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+2: Paket 'semTools' wurde unter R Version 4.4.2 erstellt 
+2: Paket 'semTools' wurde unter R Version 4.4.2 erstellt 
+Zusätzlich: Warnmeldungen:
+Ausführung angehalten
+ unter R Version 4.4.2 erstellt 
+2: Paket 'semTools' wurde unter R Version 4.4.2 erstellt 
+Ausführung angehalten
+Ausführung angehalten
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Zusätzlich: Warnmeldungen:
+1: Paket 'foreach' wurde unter R Version 4.4.2 erstellt 
+2: Paket 'semTools' wurde unter R Version 4.4.2 erstellt 
+Ausführung angehalten
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Zusätzlich: Warnmeldungen:
+1: Paket 'foreach' wurde unter R Version 4.4.2 erstellt 
+2: Paket 'semTools' wurde unter R Version 4.4.2 erstellt 
+Ausführung angehalten
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Zusätzlich: Warnmeldungen:
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+2: Paket 'semTools' wurde unter R Version 4.4.2 erstellt 
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Zusätzlich: Ausführung angehalten
+Warnmeldungen:
+1: Paket 'foreach' wurde unter R Version 4.4.2 erstellt 
+Warnmeldungen:
+2: Paket 'semTools' wurde unter R Version 4.4.2 erstellt 
+1: Paket 'foreach' wurde unter R Version 4.4.2 erstellt 
+2: Paket 'semTools' wurde unter R Version 4.4.2 erstellt 
+Ausführung angehalten
+Ausführung angehalten
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Zusätzlich: Warnmeldungen:
+1: Paket 'foreach' wurde unter R Version 4.4.2 erstellt 
+2: Paket 'semTools' wurde unter R Version 4.4.2 erstellt 
+Ausführung angehalten
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Zusätzlich: Zusätzlich: Warnmeldungen:
+1: Paket 'foreach' wurde unter R Version 4.4.2 erstellt 
+2: Paket 'semTools' wurde unter R Version 4.4.2 erstellt 
+2: Paket 'semTools' wurde unter R Version 4.4.2 erstellt 
+Ausführung angehalten
+Ausführung angehalten
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Zusätzlich: Warnmeldungen:
+1: Paket 'foreach' wurde unter R Version 4.4.2 erstellt 
+2: Paket 'semTools' wurde unter R Version 4.4.2 erstellt 
+Ausführung angehalten
+starting worker pid=7936 on localhost:11302 at 16:37:29.039
+starting worker pid=25024 on localhost:11302 at 16:37:29.277
+starting worker pid=14124 on localhost:11302 at 16:37:29.497
+starting worker pid=21168 on localhost:11302 at 16:37:29.703
+starting worker pid=12592 on localhost:11302 at 16:37:29.919
+starting worker pid=10380 on localhost:11302 at 16:37:30.171
+starting worker pid=18864 on localhost:11302 at 16:37:30.380
+starting worker pid=25216 on localhost:11302 at 16:37:30.591
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+
+Attache Paket: 'dplyr'
+
+
+Attache Paket: 'dplyr'
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+
+Attache Paket: 'dplyr'
+
+
+Attache Paket: 'dplyr'
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+
+Attache Paket: 'dplyr'
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+
+Attache Paket: 'dplyr'
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+
+Attache Paket: 'dplyr'
+
+askiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+
+Attache Paket: 'dplyr'
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+ 
+ 
+ 
+############################################################################
+###############################################################################
+###############################################################################
+###############################################################################
+###############################################################################
+This is semTools 0.5-6
+#######################################################
+This is semTools 0.5-6
+This is semTools 0.5-6
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+This is semTools 0.5-6
+are invited to submit functions or ideas for functions.
+This is semTools 0.5-6
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+This is semTools 0.5-6
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+###############################################################################
+###############################################################################
+###############################################################################
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+###############################################################################
+###############################################################################
+###############################################################################
+starting worker pid=19052 on localhost:11395 at 13:06:13.569
+starting worker pid=19800 on localhost:11395 at 13:06:13.843
+starting worker pid=312 on localhost:11395 at 13:06:14.071
+starting worker pid=18052 on localhost:11395 at 13:06:14.288
+starting worker pid=20612 on localhost:11395 at 13:06:14.498
+starting worker pid=3432 on localhost:11395 at 13:06:14.718
+starting worker pid=6772 on localhost:11395 at 13:06:14.923
+starting worker pid=17284 on localhost:11395 at 13:06:15.153
+starting worker pid=10704 on localhost:11395 at 13:06:41.988
+starting worker pid=18828 on localhost:11395 at 13:06:42.229
+starting worker pid=14972 on localhost:11395 at 13:06:42.497
+starting worker pid=16716 on localhost:11395 at 13:06:42.776
+starting worker pid=20736 on localhost:11395 at 13:06:43.069
+starting worker pid=4496 on localhost:11395 at 13:06:43.347
+starting worker pid=6636 on localhost:11395 at 13:06:43.660
+starting worker pid=20652 on localhost:11395 at 13:06:43.931
+starting worker pid=12876 on localhost:11395 at 13:06:56.478
+starting worker pid=20272 on localhost:11395 at 13:06:56.720
+starting worker pid=17732 on localhost:11395 at 13:06:56.944
+starting worker pid=19108 on localhost:11395 at 13:06:57.167
+starting worker pid=19220 on localhost:11395 at 13:06:57.385
+starting worker pid=9716 on localhost:11395 at 13:06:57.635
+starting worker pid=12308 on localhost:11395 at 13:06:57.856
+starting worker pid=1876 on localhost:11395 at 13:06:58.068
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+
+Attache Paket: 'dplyr'
+
+
+Attache Paket: 'dplyr'
+
+
+Attache Paket: 'dplyr'
+
+
+Attache Paket: 'dplyr'
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+
+Attache Paket: 'dplyr'
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+
+Attache Paket: 'dplyr'
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+
+Attache Paket: 'dplyr'
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+ 
+###############################################################################
+This is semTools 0.5-6
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+ 
+###############################################################################
+###############################################################################
+ 
+This is semTools 0.5-6
+###############################################################################
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+###############################################################################
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+###############################################################################
+ 
+###############################################################################
+This is semTools 0.5-6
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+###############################################################################
+ 
+ 
+###############################################################################
+###############################################################################
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+This is semTools 0.5-6
+ 
+###############################################################################
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+###############################################################################
+###############################################################################
+This is semTools 0.5-6
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+###############################################################################
+ 
+###############################################################################
+This is semTools 0.5-6
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+###############################################################################
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Ausführung angehalten
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Ausführung angehalten
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Ausführung angehalten
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Ausführung angehalten
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Ausführung angehalten
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Ausführung angehalten
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Ausführung angehalten
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Ausführung angehalten
+Ausführung angehalten
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Ausführung angehalten
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Ausführung angehalten
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Ausführung angehalten
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Ausführung angehalten
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Ausführung angehalten
+Ausführung angehalten
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Warnmeldungen:
+1: Paket 'foreach' wurde unter R Version 4.4.2 erstellt 
+2: Paket 'semTools' wurde unter R Version 4.4.2 erstellt 
+Warnmeldungen:
+3: 1: Paket 'foreach' wurde unter R Version 4.4.2 erstellt 
+2: Paket 'semTools' wurde unter R Version 4.4.2 erstellt 
+3: sqrt(diag(Lzero)) : NaNs wurden erzeugt
+In sqrt(diag(Lzero)) : NaNs wurden erzeugt
+Ausführung angehalten
+Ausführung angehalten
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Zusätzlich: Warnmeldungen:
+1: Paket 'foreach' wurde unter R Version 4.4.2 erstellt 
+Warnmeldungen:
+ls' wurde unter R Version 4.4.2 erstellt 
+1: Paket 'foreach' wurde unter R Version 4.4.2 erstellt 
+2: Paket 'semTools' wurde unter R Version 4.4.2 erstellt 
+Ausführung angehalten
+Ausführung angehalten
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Zusätzlich: Warnmeldungen:
+1: Paket 'foreach' wurde unter R Version 4.4.2 erstellt 
+2: Paket 'semTools' wurde unter R Version 4.4.2 erstellt 
+Ausführung angehalten
+Warnmeldungen:
+1: Paket 'foreach' wurde unter R Version 4.4.2 erstellt 
+2: Paket 'semTools' wurde unter R Version 4.4.2 erstellt 
+Ausführung angehalten
+de$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Zusätzlich: Warnmeldungen:
+1: Paket 'foreach' wurde unter R Version 4.4.2 erstellt 
+2: Paket 'semTools' wurde unter R Version 4.4.2 erstellt 
+Ausführung angehalten
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Zusätzlich: Warnmeldungen:
+1: Paket 'foreach' wurde unter R Version 4.4.2 erstellt 
+2: Paket 'semTools' wurde unter R Version 4.4.2 erstellt 
+Ausführung angehalten
+starting worker pid=7268 on localhost:11404 at 22:54:03.293
+starting worker pid=23668 on localhost:11404 at 22:54:03.762
+starting worker pid=24708 on localhost:11404 at 22:54:04.304
+starting worker pid=22424 on localhost:11404 at 22:54:04.656
+starting worker pid=22304 on localhost:11404 at 22:54:05.102
+starting worker pid=11924 on localhost:11404 at 22:54:05.559
+starting worker pid=4008 on localhost:11404 at 22:54:06.082
+starting worker pid=12900 on localhost:11404 at 22:54:06.481
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+
+Attache Paket: 'dplyr'
+
+
+Attache Paket: 'dplyr'
+
+
+Attache Paket: 'dplyr'
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+
+Attache Paket: 'dplyr'
+
+
+Attache Paket: 'dplyr'
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+
+Attache Paket: 'dplyr'
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+
+Attache Paket: 'dplyr'
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+
+Attache Paket: 'dplyr'
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+ 
+ 
+###############################################################################
+###############################################################################
+###############################################################################
+###############################################################################
+###############################################################################
+This is semTools 0.5-6
+This is semTools 0.5-6
+This is semTools 0.5-6
+This is semTools 0.5-6
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+This is semTools 0.5-6
+are invited to submit functions or ideas for functions.
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+###############################################################################
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+###############################################################################
+###############################################################################
+###############################################################################
+This is semTools 0.5-6
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+###############################################################################
+starting worker pid=18732 on localhost:11404 at 23:22:41.161
+starting worker pid=23776 on localhost:11404 at 23:22:41.430
+starting worker pid=22360 on localhost:11404 at 23:22:41.646
+starting worker pid=22568 on localhost:11404 at 23:22:41.862
+starting worker pid=12124 on localhost:11404 at 23:22:42.156
+starting worker pid=15988 on localhost:11404 at 23:22:42.424
+starting worker pid=15604 on localhost:11404 at 23:22:42.709
+starting worker pid=4712 on localhost:11404 at 23:22:42.992
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+This is lavaan 0.6-20.2279
+lavaan is FREE software! Please report any bugs.
+
+Attache Paket: 'dplyr'
+
+
+Attache Paket: 'dplyr'
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+
+Attache Paket: 'dplyr'
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+
+Attache Paket: 'dplyr'
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+
+Attache Paket: 'dplyr'
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+
+Attache Paket: 'dplyr'
+
+
+Attache Paket: 'dplyr'
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+
+Attache Paket: 'dplyr'
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Die folgenden Objekte sind maskiert von 'package:stats':
+
+    filter, lag
+
+Die folgenden Objekte sind maskiert von 'package:base':
+
+    intersect, setdiff, setequal, union
+
+ 
+ 
+ 
+ 
+ 
+###############################################################################
+###############################################################################
+#
+###############################################################################
+###############################################################################
+This is semTools 0.5-6
+This is semTools 0.5-6
+###############################################################################
+This is semTools 0.5-6
+This is semTools 0.5-6
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+###############################################################################
+###############################################################################
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+###############################################################################
+###############################################################################
+###############################################################################
+All users of R (or SEM) are invited to submit functions or ideas for functions.
+###############################################################################
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Zusätzlich: Es gab 50 oder mehr Warnungen (Anzeige der ersten 50 mit warnings())
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Zusätzlich: ngehalten
+Es gab 50 oder mehr Warnungen (Anzeige der ersten 50 mit warnings())
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Zusätzlich: Ausführung angehalten
+Es gab 50 oder mehr Warnungen (Anzeige der ersten 50 mit warnings())
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Zusätzlich: ngehalten
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Es gab 50 oder mehr Warnungen (Anzeige der ersten 50 mit warnings())
+Zusätzlich: Fehler in unserialize(noEs gab 50 oder mehr Warnungen (Anzeige der ersten 50 mit warnings())Catch -> recvData -> recvData.SOCKnode -> unserialize
+
+Zusätzlich: Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Es gab 50 oder mehr Warnungen (Anzeige der ersten 50 mit warnings())Zusätzlich: ngehalten
+Es gab 50 oder mehr Warnungen (Anzeige der ersten 50 mit warnings())
+sführung angehalten
+Ausführung angehalten
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Zusätzlich: Es gab 28 Warnungen (Anzeige mit warnings())
+Ausführung angehalten
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Zusätzlich: Es gab 50 oder mehr Warnungen (Anzeige der ersten 50 mit warnings())
+Ausführung angehalten
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Zusätzlich: Es gab 39 Warnungen (Anzeige mit warnings())
+Ausführung angehalten
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Zusätzlich: Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Es gab 50 oder mehr Warnungen (Anzeige der ersten 50 mit warnings())Zusätzlich: erialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Zusätzlich: Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Ausführung angehalten
+Zusätzlich: Es gab 50 oder mehr Warnungen (Anzeige der ersten 50 mit warnings())
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Es gab 50 oder mehr Warnungen (Anzeige der ersten 50 mit warnings())
+sätzlich: Ausführung angehalten
+Es gab 50 oder mehr Warnungen (Anzeige der ersten 50 mit warnings())Ausführung angehalten
+Ausführung angehalten
+Fehler in unserialize(node$con) : Lesefehler aus Verbindung
+Ruft auf: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Zusätzlich: Es gab 50 oder mehr Warnungen (Anzeige der ersten 50 mit warnings())
+Es gab 50 oder mehr Warnungen (Anzeige der ersten 50 mit warnings())
+Ausführung angehalten
+Ausführung angehalten
