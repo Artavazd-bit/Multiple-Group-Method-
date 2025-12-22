@@ -51,10 +51,11 @@ simresults <- foreach(jj = 1:nrow(simModels), .packages = c("lavaan", "foreach",
     )
     out$type <- simModels$type[jj]
     out$correlation <- simModels$correlation[jj]
+    out$sample_size <- n
     out$seed <- all_seeds[ii]
     ii <- ii + 1 
     out
   }
 
 closeAllConnections()
-write.csv2(simresults, "simresults_calc.csv")
+write.csv2(simresults, "simresults_calc2.csv")
