@@ -3,6 +3,7 @@ library(tidyr)
 library(ggplot2)
 library(forcats)
 library(stringr)
+library(skimr)
 
 res <- read.csv2("simresults/simresults_calc2.csv")
 
@@ -39,6 +40,38 @@ issues <- test[test$issue == 1,]
 write.csv2(issues, "issues.csv")
 
 
+numeric_summary_long <- res %>%
+  group_by(type, correlation, sample_size, test) %>%
+  summarise(
+    across(
+      c(stat, constrained, unconstrained, FL_1, FL_2),
+      list(
+        mean = ~mean(.x, na.rm = TRUE),
+        var = ~var(.x, na.rm = TRUE),
+        sd = ~sd(.x, na.rm = TRUE),
+        p05 = ~quantile(.x, 0.05, na.rm = TRUE),
+        p25 = ~quantile(.x, 0.25, na.rm = TRUE),
+        p50 = ~quantile(.x, 0.50, na.rm = TRUE),
+        p75 = ~quantile(.x, 0.75, na.rm = TRUE),
+        p95 = ~quantile(.x, 0.95, na.rm = TRUE)
+      )
+    ),
+    n = n(),
+    .groups = "drop"
+  ) %>%
+  pivot_longer(
+    cols = -c(type, correlation, sample_size, test, n),
+    names_to = c("variable", "statistic"),
+    names_sep = "_(?=[^_]+$)",
+    values_to = "value"
+  ) %>%
+  pivot_wider(
+    names_from = statistic,
+    values_from = value
+  )
+
+numeric_summary_long_filt <- numeric_summary_long %>% 
+  filter(!is.na(mean))
 
 warning_table <- res %>%
   count(type, correlation, sample_size, test, warning) %>%
@@ -109,3 +142,43 @@ p_warning_facet <- warning_table_filt %>%
     strip.background = element_rect(fill = "grey90", color = NA),
     legend.position = "bottom"
   )
+
+
+
+res %>% 
+  group_by(test, type, correlation, sample_size) %>% 
+  summarise(across(where(is.numeric)), list(mean = mean, sd = sd, na.rm = TRUE)
+  )
+
+skimr::skim(res)
+
+skim <- res %>%
+  group_by(test, type, correlation, sample_size) %>%
+  skim(stat, FL_1, FL_2, constrained, unconstrained)
+
+
+skim2 <- skim[!is.na(skim$numeric.p75), ]
+
+
+res3 <- res[res$test == "FL",]
+
+res4 <- res3[!is.na(res3$warning),]
+
+nthroot = function(x,n) {(abs(x)^(1/n))*sign(x)}
+
+
+
+res[!is.na(res$warning) & res$test== "MGA",]
+
+data <-  lavaan::simulateData(model = simModels$model[1],
+                              sample.nobs = 50, # Number of observations.
+                              skewness = NULL,
+                              kurtosis = NULL,
+                              seed = 220649496, # Set random seed.
+                              empirical = FALSE, # Logical. If TRUE, the implied moments (Mu and Sigma) specify the empirical not population mean and covariance matrix.
+                              return.type = "data.frame"
+)
+
+
+
+
