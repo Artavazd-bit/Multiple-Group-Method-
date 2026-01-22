@@ -319,3 +319,6 @@ model_unconstrained <- '
                 xi_1 ~~ 1 * xi_1
                 xi_2 ~~ 1 * xi_2
               ' 
+
+
+

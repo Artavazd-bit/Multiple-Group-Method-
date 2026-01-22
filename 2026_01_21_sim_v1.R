@@ -6,7 +6,7 @@ library(doParallel)
 library(foreach)
 library(dplyr)
 
-source("setupcalc.R")
+source("2026_01_20_setup_v1.R")
 
 nkernel <- 32
 nobs <- c(50, 100, 200, 1000)
@@ -30,6 +30,12 @@ simresults <- foreach(jj = 1:nrow(simModels), .packages = c("lavaan", "foreach",
                                   empirical = FALSE, # Logical. If TRUE, the implied moments (Mu and Sigma) specify the empirical not population mean and covariance matrix.
                                   return.type = "data.frame"
     )
+    out <- run_methods(data = data,
+                       model_unconstrained = model_unconstrained, 
+                       latent1 = "xi_1", 
+                       latent2 = "xi_2", 
+                       model_constrained = model_constrained)
+    
     
     out$model_index <- jj
     out$type <- simModels$type[jj]
@@ -43,4 +49,4 @@ simresults <- foreach(jj = 1:nrow(simModels), .packages = c("lavaan", "foreach",
   }
 
 closeAllConnections()
-write.csv2(simresults, "simresults_calc2.csv")
+write.csv2(simresults, "simres_v1.csv")
