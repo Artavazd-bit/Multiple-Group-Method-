@@ -168,13 +168,13 @@ nthroot = function(x,n) {(abs(x)^(1/n))*sign(x)}
 
 
 
-res[!is.na(res$warning) & res$test== "MGA",]
+res[!is.na(res$error) & res$test== "HTMT_COV",]
 
 data <-  lavaan::simulateData(model = simModels$model[1],
                               sample.nobs = 50, # Number of observations.
                               skewness = NULL,
                               kurtosis = NULL,
-                              seed = 220649496, # Set random seed.
+                              seed = 160820702, # Set random seed.
                               empirical = FALSE, # Logical. If TRUE, the implied moments (Mu and Sigma) specify the empirical not population mean and covariance matrix.
                               return.type = "data.frame"
 )

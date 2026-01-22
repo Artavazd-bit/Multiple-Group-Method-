@@ -332,8 +332,8 @@ model_est<- '
               ' 
 model_constrained <- '
               #  latent variables
-                xi_1 =~ x11 + x12 + x13
-                xi_2 =~ x21 + x22 + x23 
+                xi_1 =~ NA*x11 + x12 + x13
+                xi_2 =~ NA*x21 + x22 + x23 
                 
                 xi_1 ~~ 1 * xi_2
                 xi_1 ~~ 1 * xi_1
@@ -342,8 +342,10 @@ model_constrained <- '
 
 model_unconstrained <- '
               #  latent variables
-                xi_1 =~ x11 + x12 + x13
-                xi_2 =~ x21 + x22 + x23 
+                xi_1 =~ NA*x11 + x12 + x13
+                xi_2 =~ NA*x21 + x22 + x23 
                 
                 xi_1 ~~ xi_2
+                xi_1 ~~ 1 * xi_1
+                xi_2 ~~ 1 * xi_2
               ' 

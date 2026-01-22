@@ -102,7 +102,7 @@ calchtmt <- function(data, model, latent1, latent2, scale, htmt2){
 #error handling function
 jasonssuperdupererrorhandlingfunction <- function(fun, ...){
   warnings <- list()
-  error <- NULL
+  error <- NA
   
   result <- tryCatch(
     withCallingHandlers(
@@ -120,4 +120,202 @@ jasonssuperdupererrorhandlingfunction <- function(fun, ...){
   list(res = result, warnings = warnings, error = error)
 }
 
+# constrained phi function
+c_phi_and_FL <- function(model_constrained, model_unconstrained, data, latent1, latent2){
+  con_model <- jasonssuperdupererrorhandlingfunction(fun = sem, 
+                                                     model = model_constrained, 
+                                                     data = data
+                                                     )
+  uncon_model <- jasonssuperdupererrorhandlingfunction(fun = sem, 
+                                                       model = model_unconstrained, 
+                                                       data = data
+                                                       )
 
+  avesv <- AVE(uncon_model$res)[c(latent1, latent2)] / 
+      lavInspect(uncon_model$res, "cor.lv")[latent1, latent2]
+  
+  
+  return(list(
+    con_ts = con_model$res@Fit@test$standard$stat,
+    con_df = con_model$res@Fit@test$standard$df,
+    
+    uncon_ts = uncon_model$res@Fit@test$standard$stat,
+    uncon_df = uncon_model$res@Fit@test$standard$df,
+    
+    con_warning = con_model$warnings,
+    uncon_warning = uncon_model$warnings, 
+    
+    con_error = con_model$error,
+    uncon_error = uncon_model$error,
+    
+    ave_cor_ratio_1 = avesv[1],
+    ave_cor_ratio_2 = avesv[2] 
+    #warning = out$warnings,
+    #error = out$error
+  ))
+}
+
+#Fornell Larcker function
+FL <- function(data, model, latent1, latent2){
+  out <- jasonssuperdupererrorhandlingfunction(fun = sem, model = model, data = data)
+  ave <- AVE(out$res)
+  ave_sel <- ave[c(latent1, latent2)]
+  cormatrix <- lavInspect(out$res, "cor.lv")
+  avesv <- ave_sel / cormatrix[latent1, latent2]
+  return(list(
+    ave1 = avesv[1],
+    ave2 = avesv[2], 
+    warning = out$warnings,
+    error = out$error
+  ))
+}
+
+run_methods <- function(data, model_unconstrained, latent1, latent2, model_constrained){
+  mga <- jasonssuperdupererrorhandlingfunction(
+    fun = multigroup, 
+    data = data,
+    model = model_unconstrained,
+    latent1 = latent1,
+    latent2 = latent2 
+  )
+  htmt_cov <- jasonssuperdupererrorhandlingfunction(
+    fun = calchtmt, 
+    data = data,
+    model = model_unconstrained, 
+    latent1 = latent1, 
+    latent2 = latent2, 
+    scale = FALSE, 
+    htmt2 = FALSE
+  )
+  htmt_cor <- jasonssuperdupererrorhandlingfunction(
+    fun = calchtmt, 
+    data = data,
+    model = model_unconstrained, 
+    latent1 = latent1, 
+    latent2 = latent2, 
+    scale = TRUE, 
+    htmt2 = FALSE
+  )
+  htmt_2_cor <- jasonssuperdupererrorhandlingfunction(
+    fun = calchtmt, 
+    data = data,
+    model = model_unconstrained, 
+    latent1 = latent1, 
+    latent2 = latent2, 
+    scale = TRUE, 
+    htmt2 = TRUE
+  )
+  c_phi_and_FL_res <- c_phi_and_FL(model_constrained = model_constrained, 
+                                   model_unconstrained = model_unconstrained, 
+                                   data = data, 
+                                   latent1 = latent1, 
+                                   latent2 = latent2)
+  
+  output <- dplyr::bind_rows(
+    data.frame(test = "mga", stat = mga$res, warning = I(list(mga$warnings)), error = I(list(mga$error)) ),
+    data.frame(test = "htmt_cov", stat = htmt_cov$res, warning = I(list(htmt_cov$warnings)), error = I(list(htmt_cov$error))), 
+    data.frame(test = "htmt_cor", stat = htmt_cor$res, warning = I(list(htmt_cor$warnings)), error = I(list(htmt_cor$error))),
+    data.frame(test = "htmt_2", stat = htmt_2_cor$res, warning = I(list(htmt_2_cor$warnings)), error = I(list(htmt_2_cor$error))),
+    
+    data.frame(test = "conphi", chisq_constrained = c_phi_and_FL_res$con_ts, chisq_unconstrained = c_phi_and_FL_res$uncon_ts, 
+               df_constrained = c_phi_and_FL_res$con_df, df_unconstrained = c_phi_and_FL_res$uncon_df, 
+               warning_constrained = I(list(c_phi_and_FL_res$con_warning)), warning = I(list(c_phi_and_FL_res$uncon_warning)), 
+               error_constrained = I(list(c_phi_and_FL_res$con_error)), error = I(list(c_phi_and_FL_res$uncon_error))),
+    
+    data.frame(test = "fl", ave_cor_ratio_1 = c_phi_and_FL_res$ave_cor_ratio_1, ave_cor_ratio_2 = c_phi_and_FL_res$ave_cor_ratio_1, 
+               warning = I(list(c_phi_and_FL_res$uncon_warning)), error = I(list(c_phi_and_FL_res$uncon_error)))
+  )
+  return(output)
+}
+
+#sim models
+{
+  
+  corr <- c(0, 0.3, 0.7, 1)
+  param <- expand.grid(correlation = corr)
+  simModels_harsh <- foreach(i = 1:nrow(param), .combine = "rbind") %do%
+    {
+      simCommonFactor <- 
+        paste(
+          paste("xi_1 =~ 0.7*x11 + (-0.5)*x12 + 0.8*x13"),"\n"
+          , paste("xi_2 =~ 0.9*x21 + (-0.6)*x22 + (-0.8)*x23"), "\n"
+          , paste("xi_1 ~~ 1*xi_1 + ", param$correlation[i], "*xi_2"),"\n"
+          , "xi_2 ~~ 1*xi_2 \n"
+          , paste("x11 ~~", 0.6, "*x11 + 0*x12 + 0*x13 + 0*x21 + 0*x22 + 0*x23"),"\n"
+          , paste("x12 ~~", 0.5, "*x12 + 0*x13 + 0*x21 + 0*x22 + 0*x23"),"\n"
+          , paste("x13 ~~", 0.2, "*x13 + 0*x21 + 0*x22 + 0*x23"),"\n"
+          , paste("x21 ~~", 0.6, "*x21 + 0*x22 + 0*x23"),"\n"
+          , paste("x22 ~~", 0.5, "*x22 + 0*x23"),"\n"
+          , paste("x23 ~~", 0.2, "*x23"), "\n"
+          , paste("x11 ~ 0*1"), "\n"
+          , paste("x12 ~ 0*1"), "\n"
+          , paste("x13 ~ 0*1"), "\n"
+          , paste("x21 ~ 0*1"), "\n"
+          , paste("x22 ~ 0*1"), "\n"
+          , paste("x23 ~ 0*1"), "\n"
+        )
+      save <- data.frame(
+        type = "harsh",
+        correlation = param$correlation[i],
+        model = simCommonFactor
+      )
+      save
+      #rm(save, simCommonFactor, i)
+    }
+  simModels_harsh
+  
+  corr <- c(0, 0.3, 0.7, 1)
+  param <- expand.grid(correlation = corr)
+  simModels_mild <- foreach(i = 1:nrow(param), .combine = "rbind") %do%
+    {
+      simCommonFactor <- 
+        paste(
+          paste("xi_1 =~ 0.7*x11 + (0.5)*x12 + 0.8*x13"),"\n"
+          , paste("xi_2 =~ 0.9*x21 + (0.6)*x22 + (0.8)*x23"), "\n"
+          , paste("xi_1 ~~ 1*xi_1 + ", param$correlation[i], "*xi_2"),"\n"
+          , "xi_2 ~~ 1*xi_2 \n"
+          , paste("x11 ~~", 0.6, "*x11 + 0*x12 + 0*x13 + 0*x21 + 0*x22 + 0*x23"),"\n"
+          , paste("x12 ~~", 0.5, "*x12 + 0*x13 + 0*x21 + 0*x22 + 0*x23"),"\n"
+          , paste("x13 ~~", 0.2, "*x13 + 0*x21 + 0*x22 + 0*x23"),"\n"
+          , paste("x21 ~~", 0.6, "*x21 + 0*x22 + 0*x23"),"\n"
+          , paste("x22 ~~", 0.5, "*x22 + 0*x23"),"\n"
+          , paste("x23 ~~", 0.2, "*x23"), "\n"
+          , paste("x11 ~ 0*1"), "\n"
+          , paste("x12 ~ 0*1"), "\n"
+          , paste("x13 ~ 0*1"), "\n"
+          , paste("x21 ~ 0*1"), "\n"
+          , paste("x22 ~ 0*1"), "\n"
+          , paste("x23 ~ 0*1"), "\n"
+        )
+      save <- data.frame(
+        type = "mild",
+        correlation = param$correlation[i],
+        model = simCommonFactor
+      )
+      save
+      #rm(save, simCommonFactor, i)
+    }
+  
+  simModels <- rbind(simModels_harsh, simModels_mild)
+  rm(simModels_harsh, simModels_mild, param, save, corr)
+}
+
+model_constrained <- '
+              #  latent variables
+                xi_1 =~ NA*x11 + x12 + x13
+                xi_2 =~ NA*x21 + x22 + x23 
+                
+                xi_1 ~~ 1 * xi_2
+                xi_1 ~~ 1 * xi_1
+                xi_2 ~~ 1 * xi_2
+              ' 
+
+model_unconstrained <- '
+              #  latent variables
+                xi_1 =~ NA*x11 + x12 + x13
+                xi_2 =~ NA*x21 + x22 + x23 
+                
+                xi_1 ~~ xi_2
+                xi_1 ~~ 1 * xi_1
+                xi_2 ~~ 1 * xi_2
+              ' 
