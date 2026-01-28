@@ -125,22 +125,42 @@ c_phi_and_FL <- function(model_constrained, model_unconstrained, data, latent1, 
   con_model <- jasonssuperdupererrorhandlingfunction(fun = sem, 
                                                      model = model_constrained, 
                                                      data = data
-                                                     )
+  )
   uncon_model <- jasonssuperdupererrorhandlingfunction(fun = sem, 
                                                        model = model_unconstrained, 
                                                        data = data
-                                                       )
-
+  )
+  
+  
+  
   avesv <- AVE(uncon_model$res)[c(latent1, latent2)] / 
-      lavInspect(uncon_model$res, "cor.lv")[latent1, latent2]
+    lavInspect(uncon_model$res, "cor.lv")[latent1, latent2]
+  
+  if(is.null(con_model$res@Fit@test$standard)){
+    con_ts <- NA 
+    con_df <- NA
+  }
+  else{
+    con_ts = con_model$res@Fit@test$standard$stat
+    con_df = con_model$res@Fit@test$standard$df
+  }
+  
+  if(is.null(uncon_model$res@Fit@test$standard)){
+    uncon_ts <- NA 
+    uncon_df <- NA
+  }
+  else{
+    uncon_ts = uncon_model$res@Fit@test$standard$stat
+    uncon_df = uncon_model$res@Fit@test$standard$df
+  }
   
   
   return(list(
-    con_ts = con_model$res@Fit@test$standard$stat,
-    con_df = con_model$res@Fit@test$standard$df,
+    con_ts = con_ts,
+    con_df = con_df,
     
-    uncon_ts = uncon_model$res@Fit@test$standard$stat,
-    uncon_df = uncon_model$res@Fit@test$standard$df,
+    uncon_ts = uncon_ts,
+    uncon_df = uncon_df,
     
     con_warning = con_model$warnings,
     uncon_warning = uncon_model$warnings, 
@@ -211,19 +231,48 @@ run_methods <- function(data, model_unconstrained, latent1, latent2, model_const
                                    latent1 = latent1, 
                                    latent2 = latent2)
   
+  warn_to_str <- function(w) {
+    if(length(w) == 0) return(NA_character_)
+    paste(sapply(w, conditionMessage), collapse = "; ")
+  }
+  err_to_str <- function(e) {
+    if(is.na(e) || length(e) == 0) return(NA_character_)
+    as.character(e)
+  }
+  
   output <- dplyr::bind_rows(
-    data.frame(test = "mga", stat = mga$res, warning = I(list(mga$warnings)), error = I(list(mga$error)) ),
-    data.frame(test = "htmt_cov", stat = htmt_cov$res, warning = I(list(htmt_cov$warnings)), error = I(list(htmt_cov$error))), 
-    data.frame(test = "htmt_cor", stat = htmt_cor$res, warning = I(list(htmt_cor$warnings)), error = I(list(htmt_cor$error))),
-    data.frame(test = "htmt_2", stat = htmt_2_cor$res, warning = I(list(htmt_2_cor$warnings)), error = I(list(htmt_2_cor$error))),
+    data.frame(test = "mga", 
+               stat = mga$res, 
+               warning = I(list(mga$warnings)), 
+               error = I(list(mga$error)) ),
+    data.frame(test = "htmt_cov", 
+               stat = htmt_cov$res, 
+               warning = I(list(htmt_cov$warnings)), 
+               error = I(list(htmt_cov$error))), 
+    data.frame(test = "htmt_cor", 
+               stat = htmt_cor$res, 
+               warning = I(list(htmt_cor$warnings)), 
+               error = I(list(htmt_cor$error))),
+    data.frame(test = "htmt_2", 
+               stat = htmt_2_cor$res, 
+               warning = I(list(htmt_2_cor$warnings)), 
+               error = I(list(htmt_2_cor$error))),
     
-    data.frame(test = "conphi", chisq_constrained = c_phi_and_FL_res$con_ts, chisq_unconstrained = c_phi_and_FL_res$uncon_ts, 
-               df_constrained = c_phi_and_FL_res$con_df, df_unconstrained = c_phi_and_FL_res$uncon_df, 
-               warning_constrained = I(list(c_phi_and_FL_res$con_warning)), warning = I(list(c_phi_and_FL_res$uncon_warning)), 
-               error_constrained = I(list(c_phi_and_FL_res$con_error)), error = I(list(c_phi_and_FL_res$uncon_error))),
+    data.frame(test = "conphi", 
+               chisq_constrained = c_phi_and_FL_res$con_ts, 
+               chisq_unconstrained = c_phi_and_FL_res$uncon_ts, 
+               df_constrained = c_phi_and_FL_res$con_df, 
+               df_unconstrained = c_phi_and_FL_res$uncon_df, 
+               warning_constrained = I(list(c_phi_and_FL_res$con_warning)), 
+               warning = I(list(c_phi_and_FL_res$uncon_warning)), 
+               error_constrained = I(list(c_phi_and_FL_res$con_error)), 
+               error = I(list(c_phi_and_FL_res$uncon_error))),
     
-    data.frame(test = "fl", ave_cor_ratio_1 = c_phi_and_FL_res$ave_cor_ratio_1, ave_cor_ratio_2 = c_phi_and_FL_res$ave_cor_ratio_1, 
-               warning = I(list(c_phi_and_FL_res$uncon_warning)), error = I(list(c_phi_and_FL_res$uncon_error)))
+    data.frame(test = "fl", 
+               ave_cor_ratio_1 = c_phi_and_FL_res$ave_cor_ratio_1, 
+               ave_cor_ratio_2 = c_phi_and_FL_res$ave_cor_ratio_1, 
+               warning = I(list(c_phi_and_FL_res$uncon_warning)), 
+               error = I(list(c_phi_and_FL_res$uncon_error)))
   )
   return(output)
 }
