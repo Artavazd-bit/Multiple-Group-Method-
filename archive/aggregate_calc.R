@@ -40,7 +40,7 @@ issues <- test[test$issue == 1,]
 write.csv2(issues, "issues.csv")
 
 
-numeric_summary_long <- res %>%
+numeric_summary_long <- res2 %>%
   group_by(type, correlation, sample_size, test) %>%
   summarise(
     across(
@@ -85,8 +85,8 @@ error_table <- res %>%
 error_table_filt <- error_table %>% 
   filter(!is.na(error))
 
-warning_table_filt <- warning_table %>% 
-  filter(!is.na(warning))
+warning_table_filt <- res2 %>% 
+  filter()
 
 p_error_facet <- error_table_filt %>%
   mutate(
