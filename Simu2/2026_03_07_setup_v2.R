@@ -69,24 +69,24 @@ calchtmt <- function(data, model, latent1, latent2, scale, htmt2){
   K_i <- length(unlist(listind1))
   K_j <- length(unlist(listind2))
   
-    if(htmt2 == FALSE){
-      A = 1/(K_i*K_j) * sum(cor_values$val[cor_values$type == "het"])
-      B = 2/(K_i*(K_i-1)) *  sum(cor_values$val[cor_values$type == "mono1"]) 
-      C = 2/(K_j*(K_j-1)) *  sum(cor_values$val[cor_values$type == "mono2"]) 
-      HTMT <- A / ((B*C)^(1/2))
-    }
-    else if(htmt2 == TRUE){
-      #A =  (prod(cor_values$val[cor_values$type == "het"]))^(1/(K_i*K_j))
-      A = nthroot((prod(cor_values$val[cor_values$type == "het"])), (K_i*K_j))
-      #B =  (prod(cor_values$val[cor_values$type == "mono1"]))^(2/(K_i*(K_i-1))) 
-      B = nthroot((prod(cor_values$val[cor_values$type == "mono1"])), (K_i*(K_i-1))/2)
-      #C =  (prod(cor_values$val[cor_values$type == "mono2"]))^(2/(K_j*(K_j-1))) 
-      C = nthroot((prod(cor_values$val[cor_values$type == "mono2"])), (K_j*(K_j-1))/2 ) 
-      HTMT <- A / ((B*C)^(1/2))
-    }
-    else{
-      print("ERROR")
-    }
+  if(htmt2 == FALSE){
+    A = 1/(K_i*K_j) * sum(cor_values$val[cor_values$type == "het"])
+    B = 2/(K_i*(K_i-1)) *  sum(cor_values$val[cor_values$type == "mono1"]) 
+    C = 2/(K_j*(K_j-1)) *  sum(cor_values$val[cor_values$type == "mono2"]) 
+    HTMT <- A / ((B*C)^(1/2))
+  }
+  else if(htmt2 == TRUE){
+    #A =  (prod(cor_values$val[cor_values$type == "het"]))^(1/(K_i*K_j))
+    A = nthroot((prod(cor_values$val[cor_values$type == "het"])), (K_i*K_j))
+    #B =  (prod(cor_values$val[cor_values$type == "mono1"]))^(2/(K_i*(K_i-1))) 
+    B = nthroot((prod(cor_values$val[cor_values$type == "mono1"])), (K_i*(K_i-1))/2)
+    #C =  (prod(cor_values$val[cor_values$type == "mono2"]))^(2/(K_j*(K_j-1))) 
+    C = nthroot((prod(cor_values$val[cor_values$type == "mono2"])), (K_j*(K_j-1))/2 ) 
+    HTMT <- A / ((B*C)^(1/2))
+  }
+  else{
+    print("ERROR")
+  }
   if(is.na(A)){
     warning("nominator is NaN")
   }
@@ -113,8 +113,8 @@ jasonssuperdupererrorhandlingfunction <- function(fun, ...){
       }
     ), 
     error = function(cond){
-     error <<- conditionMessage(cond)
-     NA
+      error <<- conditionMessage(cond)
+      NA
     }
   )
   list(res = result, warnings = warnings, error = error)
@@ -190,6 +190,100 @@ FL <- function(data, model, latent1, latent2){
   ))
 }
 
+bootstrap <- function(data, statisticfun, ...,  alpha = 0.05, nboot)
+{
+  boot <- sapply(1:nboot, function(x) statisticfun(data = dplyr::sample_n(data, nrow(data), replace = TRUE), ...))
+  valid_boot <- boot[!is.na(boot)]
+  lowerbound <- unname(quantile(valid_boot, probs = alpha/2))
+  upperbound <- unname(quantile(valid_boot, probs = 1 - (alpha/2)))
+  bootmean <- mean(valid_boot)
+  bootsd <- sd(valid_boot)
+  return(list(
+    boot = valid_boot,
+    lowerbound = lowerbound, 
+    upperbound = upperbound,
+    mean = bootmean, 
+    se = bootsd,
+    missing = sum(is.na(boot)),
+    alpha = alpha
+  ))
+}
+
+tetrad <- function(data, model, latent1 = NULL, latent2 = NULL, scale = FALSE){
+  model_df <- lavaanify(model)
+  
+  if(is.null(latent1) & is.null(latent2) ){
+    latentvars <- unique(model_df$lhs[model_df$op == "=~"])
+    listind1 <- list(model_df$rhs[model_df$lhs == latentvars[1] & model_df$op == "=~"])
+    listind2 <- list(model_df$rhs[model_df$lhs == latentvars[2] & model_df$op == "=~"])
+    if(length(latentvars) != 2){
+      error("please select two latent variables")
+    }
+  }else{
+    listind1 <- list(model_df$rhs[model_df$lhs == latent1 & model_df$op == "=~"])
+    listind2 <- list(model_df$rhs[model_df$lhs == latent2 & model_df$op == "=~"])
+  }
+  all_indicators <- unlist(list(listind1, listind2)) 
+  
+  subset_data <- data[, all_indicators]
+  if(scale == FALSE){
+    cor_subset_data <- cov(subset_data)
+  } else { 
+    cor_subset_data <- cor(subset_data)
+  }
+  
+  ind <- which( lower.tri(cor_subset_data,diag=F) , arr.ind = TRUE )
+  cor_values <- data.frame( col = dimnames(cor_subset_data)[[2]][ind[,2]] ,
+                            row = dimnames(cor_subset_data)[[1]][ind[,1]] ,
+                            val = cor_subset_data[ ind ] )
+  
+  cor_values$type[cor_values$col %in% unlist(listind1) & cor_values$row 
+                  %in% unlist(listind1)] <- "mono1"
+  cor_values$type[cor_values$col %in% unlist(listind2) & cor_values$row 
+                  %in% unlist(listind2)] <- "mono2"
+  cor_values$type[cor_values$col %in% unlist(listind1) & cor_values$row 
+                  %in% unlist(listind2)] <- "het"
+  
+  mono <- cor_values[cor_values$type %in% c("mono1", "mono2"), ]
+  cor_sym <- cor_values %>%
+    bind_rows(
+      cor_values %>% rename(col = row, row = col)
+    )
+  
+  out <- mono %>% mutate(id = row_number()) %>% 
+    cross_join(., ., suffix = c("_1", "_2")) %>% 
+    filter(id_1 < id_2) %>% 
+    filter(type_1 != type_2) %>% 
+    left_join(., cor_sym, by = c("row_1" = "row", "col_2" = "col")) %>% 
+    left_join(., cor_sym, by = c("col_1" = "col", "row_2" = "row"))
+  
+  out$tetrad <- out$val_1 * out$val_2 - out$val.x*out$val.y
+  
+  out <- out %>% select(- c("type.x", "type.y", "id_1", "id_2"))
+  
+  return(out$tetrad)
+}
+
+tetrad_test <- function(data, model, latent1 = NULL, latent2 = NULL, scale = FALSE, nboot = 500, alpha = 0.05){
+  
+  tetrads <- tetrad(data, model = model, latent1 = latent1, latent2 = latent2, scale = scale)
+  boot <- bootstrap(data, 
+                    statisticfun = tetrad, 
+                    model = model, 
+                    latent1 = latent1, 
+                    latent2 = latent2, 
+                    scale = scale, 
+                    alpha = 0.05, 
+                    nboot = nboot)
+  tetrads_boot <- sapply(0:(length(tetrads)-1), function(x) { boot$boot[seq_along(boot$boot) %% length(tetrads) == x]})
+  tetrads_lower <- as.data.frame(tetrads_boot) %>% summarise(across(everything(), ~ quantile(.x, probs = (alpha/length(tetrads))/2)))
+  tetrads_upper <- as.data.frame(tetrads_boot) %>% summarise(across(everything(), ~ quantile(.x, probs = 1 - (alpha/length(tetrads))/2)))
+  
+  test <- all(tetrads_lower < 0) & all(tetrads_upper > 0) 
+  return(list(test, tetrads_lower = tetrads_lower, tetrads_upper = tetrads_upper, tetrads = tetrads))
+}
+
+
 run_methods <- function(data, model_unconstrained, latent1, latent2, model_constrained){
   mga <- jasonssuperdupererrorhandlingfunction(
     fun = multigroup, 
@@ -225,6 +319,7 @@ run_methods <- function(data, model_unconstrained, latent1, latent2, model_const
     scale = TRUE, 
     htmt2 = TRUE
   )
+  tetrads <- tetrad_test(data, model_unconstrained, alpha = 0.05)
   c_phi_and_FL_res <- c_phi_and_FL(model_constrained = model_constrained, 
                                    model_unconstrained = model_unconstrained, 
                                    data = data, 
@@ -272,7 +367,12 @@ run_methods <- function(data, model_unconstrained, latent1, latent2, model_const
                ave_cor_ratio_1 = c_phi_and_FL_res$ave_cor_ratio_1, 
                ave_cor_ratio_2 = c_phi_and_FL_res$ave_cor_ratio_1, 
                warning = I(list(c_phi_and_FL_res$uncon_warning)), 
-               error = I(list(c_phi_and_FL_res$uncon_error)))
+               error = I(list(c_phi_and_FL_res$uncon_error))), 
+    data.frame(test = "tetrad", 
+               decision = tetrads[[1]], 
+               tetrads_lower = I(list(tetrads$tetrads_lower)),
+               tetrads_upper = I(list(tetrads$tetrads_upper)), 
+               tetrads = I(list(tetrads$tetrads)))
   )
   return(output)
 }
@@ -345,7 +445,8 @@ run_methods <- function(data, model_unconstrained, latent1, latent2, model_const
       #rm(save, simCommonFactor, i)
     }
   
-  simModels <- rbind(simModels_harsh, simModels_mild)
+  # simModels <- rbind(simModels_harsh, simModels_mild)
+  simModels <- simModels_mild
   rm(simModels_harsh, simModels_mild, param, save, corr)
 }
 
@@ -368,6 +469,8 @@ model_unconstrained <- '
                 xi_1 ~~ 1 * xi_1
                 xi_2 ~~ 1 * xi_2
               ' 
+
+
 
 
 
