@@ -8,7 +8,7 @@ source("2026_01_20_setup_v1.R")
 
 model <- "xi_1 =~ 0.7 * x11 + 0.8 * x12 + 0.9 * x13
           xi_2 =~ 0.8 * x21 + 0.6 * x22 + 0.7 * x23
-          xi_1 ~~ 1 * xi_1 + 0.5 * xi_2
+          xi_1 ~~ 1 * xi_1 + 1 * xi_2
           
           x11 ~~ 1 * x11 + 0 * x12 + 0 * x13 + 0 * x21 + 0 * x22 + 0 * x23
           x12 ~~ 1 * x12 + 0 * x13 + 0 * x21 + 0 * x22 + 0 * x23
@@ -18,7 +18,7 @@ model <- "xi_1 =~ 0.7 * x11 + 0.8 * x12 + 0.9 * x13
           x22 ~~ 1 * x22 + 0 * x23
           x23 ~~ 1 * x23"
 
-n <- 100
+n <- 10000
 data <- lavaan::simulateData(model = model,
                               sample.nobs = n, # Number of observations.
                               skewness = NULL,

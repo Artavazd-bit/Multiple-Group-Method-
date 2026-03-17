@@ -3,8 +3,9 @@ library(semTools)
 library(doParallel)
 library(foreach)
 library(dplyr)
+library(numDeriv)
 
-source("2026_01_20_setup_v1.R")
+source("2026_01_20_setup_v2.R")
 
 tetrad <- function(data, model, latent1 = NULL, latent2 = NULL, scale = FALSE){
   model_df <- lavaanify(model)
@@ -61,47 +62,9 @@ tetrad <- function(data, model, latent1 = NULL, latent2 = NULL, scale = FALSE){
   return(out)
 }
 
-
-#gives a correlation or covariance vector so the tetrads can be calculated
-simple_tetrad <- function(sigma_vec, latent1 = "xi1"){
-  if(length(sigma_vec) != 4){
-    error("you need at least 4 values")
-  }
-  tetrad <- sigma_vec[1]*sigma_vec[2] - sigma_vec[3]*sigma_vec[4]
-  return(tetrad)
-}
-
-library(numDeriv)
-
-grad(simple_tetrad, c(1,2,3,4))
-
-
-
-out <- tetrad(data = data, model = model)
-
-for(i in 1:nrow(out)){
-  out$grad[i] <- list(grad(simple_tetrad, c(out$val_1[i], out$val_2[i], out$val.x[i], out$val.y[i])))
-}
-
-
-
-values <- cov(data)[lower.tri(cov(data))]
-
-cov <- cov(data)
-
-lt <- cov[lower.tri(cov)]
-
-testmatrix <- matrix(nrow = 6, ncol = 6)
-
-testmatrix[lower.tri(testmatrix)] <- lt
-
-testmatrix[upper.tri(testmatrix)] <- t(testmatrix)[upper.tri(testmatrix)]
-diag(testmatrix) <- 1
-testmatrix - cov
-
 tetrad_inner <- function(x, cor_subset_data, listind1, listind2){
   cor_subset_data[lower.tri(cor_subset_data)] <- x
-
+  cor_subset_data[upper.tri(cor_subset_data)] <- t(cor_subset_data)[upper.tri(cor_subset_data)]
   ind <- which( lower.tri(cor_subset_data,diag=F) , arr.ind = TRUE )
   cor_values <- data.frame( col = dimnames(cor_subset_data)[[2]][ind[,2]] ,
                             row = dimnames(cor_subset_data)[[1]][ind[,1]] ,
@@ -163,11 +126,11 @@ tetrad_outer <- function(data, model, scale = FALSE, latent1 = NULL, latent2 = N
   return(list(tetrads = tetrads, grad_tetrads = grad_tetrads))
 }
 
-out <- tetrad_outer(data, model)
+out <- tetrad_outer(data_1, model_unconstrained)
 
-covcov <- calcovcov(data)
+covcov <- calcovcov(data_1)
 
-covtetrads <- nrow(data) * out$grad_tetrads %*% covcov %*% t(out$grad_tetrads)
-T <- t(out$tetrads) %*% solve(covtetrads) %*% out$tetrads
+covtetrads <-  out$grad_tetrads %*% (covcov / nrow(data_1) )  %*% t(out$grad_tetrads)
+T <- nrow(data_1)* t(out$tetrads) %*% solve(covtetrads) %*% out$tetrads
 
-pchisq()
+pchisq(T, 9, lower.tail = FALSE)

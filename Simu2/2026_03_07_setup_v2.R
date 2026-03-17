@@ -261,7 +261,7 @@ tetrad <- function(data, model, latent1 = NULL, latent2 = NULL, scale = FALSE){
   
   out <- out %>% select(- c("type.x", "type.y", "id_1", "id_2"))
   
-  return(out$tetrad)
+  return(out)
 }
 
 tetrad_test <- function(data, model, latent1 = NULL, latent2 = NULL, scale = FALSE, nboot = 500, alpha = 0.05){
@@ -419,22 +419,22 @@ run_methods <- function(data, model_unconstrained, latent1, latent2, model_const
     {
       simCommonFactor <- 
         paste(
-          paste("xi_1 =~ 0.7*x11 + (0.5)*x12 + 0.8*x13"),"\n"
-          , paste("xi_2 =~ 0.9*x21 + (0.6)*x22 + (0.8)*x23"), "\n"
+          paste("xi_1 =~ 0.7*x1 + (0.5)*x2 + 0.8*x3"),"\n"
+          , paste("xi_2 =~ 0.9*x4 + (0.6)*x5 + (0.8)*x6"), "\n"
           , paste("xi_1 ~~ 1*xi_1 + ", param$correlation[i], "*xi_2"),"\n"
           , "xi_2 ~~ 1*xi_2 \n"
-          , paste("x11 ~~", 0.6, "*x11 + 0*x12 + 0*x13 + 0*x21 + 0*x22 + 0*x23"),"\n"
-          , paste("x12 ~~", 0.5, "*x12 + 0*x13 + 0*x21 + 0*x22 + 0*x23"),"\n"
-          , paste("x13 ~~", 0.2, "*x13 + 0*x21 + 0*x22 + 0*x23"),"\n"
-          , paste("x21 ~~", 0.6, "*x21 + 0*x22 + 0*x23"),"\n"
-          , paste("x22 ~~", 0.5, "*x22 + 0*x23"),"\n"
-          , paste("x23 ~~", 0.2, "*x23"), "\n"
-          , paste("x11 ~ 0*1"), "\n"
-          , paste("x12 ~ 0*1"), "\n"
-          , paste("x13 ~ 0*1"), "\n"
-          , paste("x21 ~ 0*1"), "\n"
-          , paste("x22 ~ 0*1"), "\n"
-          , paste("x23 ~ 0*1"), "\n"
+          , paste("x1 ~~", 0.6, "*x1 + 0*x2 + 0*x3 + 0*x4 + 0*x5 + 0*x6"),"\n"
+          , paste("x2 ~~", 0.5, "*x2 + 0*x3 + 0*x4 + 0*x5 + 0*x6"),"\n"
+          , paste("x3 ~~", 0.2, "*x3 + 0*x4 + 0*x5 + 0*x6"),"\n"
+          , paste("x4 ~~", 0.6, "*x4 + 0*x5 + 0*x6"),"\n"
+          , paste("x5 ~~", 0.5, "*x5 + 0*x6"),"\n"
+          , paste("x6 ~~", 0.2, "*x6"), "\n"
+          , paste("x1 ~ 0*1"), "\n"
+          , paste("x2 ~ 0*1"), "\n"
+          , paste("x3 ~ 0*1"), "\n"
+          , paste("x4 ~ 0*1"), "\n"
+          , paste("x5 ~ 0*1"), "\n"
+          , paste("x6 ~ 0*1"), "\n"
         )
       save <- data.frame(
         type = "mild",
@@ -452,8 +452,8 @@ run_methods <- function(data, model_unconstrained, latent1, latent2, model_const
 
 model_constrained <- '
               #  latent variables
-                xi_1 =~ NA*x11 + x12 + x13
-                xi_2 =~ NA*x21 + x22 + x23 
+                xi_1 =~ NA*x1 + x2 + x3
+                xi_2 =~ NA*x4 + x5 + x6 
                 
                 xi_1 ~~ 1 * xi_2
                 xi_1 ~~ 1 * xi_1
@@ -462,8 +462,8 @@ model_constrained <- '
 
 model_unconstrained <- '
               #  latent variables
-                xi_1 =~ NA*x11 + x12 + x13
-                xi_2 =~ NA*x21 + x22 + x23 
+                xi_1 =~ NA*x1 + x2 + x3
+                xi_2 =~ NA*x4 + x5 + x6 
                 
                 xi_1 ~~ xi_2
                 xi_1 ~~ 1 * xi_1
